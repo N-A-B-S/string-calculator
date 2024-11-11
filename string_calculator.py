@@ -116,8 +116,8 @@ def evaluate_rpn(rpn_expression):
         if check_is_number(token):
             stack.append(float(token)) #Converting everything to a float to support decimals
         else:
-            b = stack.pop()
-            a = stack.pop() if stack else 0
+            b = stack.pop() #Grab number
+            a = stack.pop() if stack else 0 #Grab another unless the stack is empty
 
             if token == '+':
                 stack.append(a + b)
@@ -130,9 +130,9 @@ def evaluate_rpn(rpn_expression):
                     raise ZeroDivisionError("Division by zero is not allowed")
                 stack.append(a / b)
             elif token == '^':
-                stack.append(math.pow(a, b))
+                stack.append(math.pow(a, b)) #I'm not sure if I should use math, but it seemed like a bad idea to implement my own exponent function
 
-    return stack[0]
+    return stack[0] #Returns the final item in the stack
 
 def evaluate_expression(expression):
     rpn = infix_to_rpn(expression)
@@ -141,4 +141,5 @@ def evaluate_expression(expression):
 
 expression = "-53 + -24"
 result = evaluate_expression(expression)
+print("Expression is: ", expression)
 print ("Result: ", result)

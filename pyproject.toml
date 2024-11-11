@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "string-calculator"
+version = "0.1.0"
+description = "Mathematical expression given as a String. Solving it using the Shunting Yard algorithm and RPN."
+authors = ["Nabeel S"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pytest = "^8.3.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
